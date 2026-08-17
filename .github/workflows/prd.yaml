@@ -1,7 +1,7 @@
 name: Deploy main to Cloudflare Pages
 
 # Direct Upload of the static site to the PRD Pages project on push to main.
-# No build. Project zkbtc-website is created by DFX Cloudflare Terraform.
+# No build. Project zkbtc-website is created in the Cloudflare Terraform.
 
 on:
   push:
