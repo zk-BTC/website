@@ -1,0 +1,163 @@
+:root {
+  --bg: #f4f1ea;
+  --paper: #fffcf6;
+  --ink: #141312;
+  --muted: #5c574f;
+  --line: #d9d2c6;
+  --accent: #c45c12;
+  --sans: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--ui);
+  line-height: 1.5;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+header {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mark {
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 1.1rem;
+  font-size: 0.92rem;
+}
+
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.langs {
+  font-size: 0.85rem;
+}
+
+.langs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.langs a[aria-current="true"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+h1 {
+  font-family: var(--sans);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
+}
+
+.lede {
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+  max-width: 42rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.frame {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  min-height: 78vh;
+}
+
+.frame iframe {
+  display: block;
+  width: 100%;
+  height: 78vh;
+  border: 0;
+}
+
+.faq h2 {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  margin: 1.6rem 0 0.4rem;
+}
+
+.faq p {
+  margin: 0 0 0.35rem;
+  max-width: 44rem;
+}
+
+.faq p + p {
+  margin-top: 0.55rem;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+  padding: 1rem 1.25rem 1.4rem;
+  text-align: center;
+}
+
+.note {
+  font-size: 0.88rem;
+  color: var(--muted);
+  max-width: 44rem;
+}
