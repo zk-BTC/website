@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /white-paper/
+Allow: /faq/
+Allow: /de/white-paper/
+Allow: /de/faq/
+Allow: /files/
+Allow: /styles.css
+Allow: /favicon.svg
+Disallow: /index.html
+
+Sitemap: https://zkbtc.com/sitemap.xml
