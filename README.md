@@ -16,7 +16,14 @@ PDFs live in `files/` and match the current papers in [zk-coins/zkbtc](https://g
 
 ## Deploy
 
-Static files, no build. Point Cloudflare Pages (or any static host) at this repository’s default branch, then attach `zkbtc.com`. The `_redirects` file is the host 301; `index.html` is a fallback redirect for hosts that ignore `_redirects`.
+Static files, no build. Production is Cloudflare Pages project `zkbtc-website` (Direct Upload). Push to `main` runs `.github/workflows/prd.yaml` (`wrangler pages deploy .`). Apex `zkbtc.com` is attached in the infrastructure Terraform; `www` 301-redirects to the apex.
+
+Secrets in this repository:
+
+- `CLOUDFLARE_API_TOKEN` — Pages Edit token
+- `CLOUDFLARE_ACCOUNT_ID` — Cloudflare account that owns `zkbtc-website`
+
+The `_redirects` file is the host 301; `index.html` is a fallback redirect for hosts that ignore `_redirects`.
 
 ## License
 
