@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>zkBTC FAQ</title>
-<meta name="description" content="Die dringendsten Fragen zu zkBTC: was es ist, ob es live ist, wie der Ausgang funktioniert, Privatsphäre und der optionale Gatekeeper." />
+<meta name="description" content="Die dringendsten Fragen zu zkBTC: es ist effektiv trustless, weil du Operator bist; wie der Ausgang funktioniert; Privatsphäre; der optionale Gatekeeper." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://zkbtc.com/de/faq/" />
 <link rel="alternate" hreflang="en" href="https://zkbtc.com/faq/" />
@@ -36,7 +36,10 @@
   <p class="lede">Kurze Antworten. Quellen: das <a href="/de/white-paper/">Whitepaper</a> und die Spezifikation unter github.com/zk-coins/zkbtc.</p>
 
   <h2 id="what-is-zkbtc">Was ist zkBTC? <a class="copy-link" href="#what-is-zkbtc" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
-  <p>Ein eins-zu-eins durch Bitcoin gedecktes Token auf dem zkCoins-Protokoll: private Transfers, einlösbar in On-Chain-Bitcoin. Die Reserve liegt in Tresoren, die nur entlang vorsignierter BitVM2-Betrugsnachweis-Pfade ausgeben, nicht bei einem Verwahrer.</p>
+  <p>Ein eins-zu-eins durch Bitcoin gedecktes Token auf dem zkCoins-Protokoll: private Transfers, einlösbar in On-Chain-Bitcoin. Die Reserve liegt in Tresoren, die nur entlang vorsignierter BitVM2-Betrugsnachweis-Pfade ausgeben, nicht bei einem Verwahrer. Es ist effektiv trustless: du bist Operator und vertraust niemandem sonst dein Bitcoin an.</p>
+
+  <h2 id="is-it-trustless">Ist zkBTC trustless? Muss ich Operatoren oder einem Gatekeeper vertrauen? <a class="copy-link" href="#is-it-trustless" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
+  <p><strong>Effektiv trustless. Du vertraust keinen fremden Operatoren. Du bist selbst Operator.</strong> Jeder darf in die Operator-Menge. Diese Menge wächst nur: neue Leute können dazukommen, niemand fliegt raus, und jeder neue Tresor wird von <em>allen</em> aktuellen Operatoren unterschrieben, auch von dir. Ein Dieb kann später keinen privaten Tresor aufmachen, weil du mitunterschreiben müsstest, und du unterschreibst keinen Graphen, der stehlen lässt. Du kannst dich auch selbst auszahlen. Melde dich an, bevor die erste Münze des Assets geprägt wird. Ein Gatekeeper, falls vorhanden, prüft nur neue Einlagen; er kann nicht einfrieren, beschlagnahmen oder den Ausgang blockieren, und er ist nicht das, was zkBTC trustless macht. Was das nicht magisch beseitigt: Bitcoin selbst (ein 51%-Angriff), Fehler in der Kryptographie, und dass du dich wirklich anmelden musst, wenn du diese Garantien willst. Münzen, die geprägt wurden, bevor du dabei warst, sind nur so sicher wie wer schon in der Menge war.</p>
 
   <h2 id="can-i-use-it-today">Kann ich es heute nutzen? <a class="copy-link" href="#can-i-use-it-today" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
   <p>Nein. Das ist eine Design-Spezifikation und ein informatives Paper. Es gibt noch keine Produktions-Implementierung und kein externes Audit. Es ist kein Produkt, das du heute auf dem Mainnet prägen oder einlösen kannst.</p>
@@ -45,13 +48,13 @@
   <p>Mint: Bitcoin sperren, tiefe Bestätigung des Tresor-Umzugs abwarten (Grössenordnung 2016 Blöcke), dann das Token empfangen. Einlösen: die Münze zuerst verbrennen, dann streckt ein angemeldeter Operator Bitcoin vor und holt sich den Betrag aus dem Tresor. Es gibt kein Ent-Verbrennen. <code>max_fee</code> hoch genug setzen, sonst kann die verbrannte Münze unbedient bleiben.</p>
 
   <h2 id="gatekeeper">Gibt es einen Gatekeeper? Kann er meine Münzen einfrieren? <a class="copy-link" href="#gatekeeper" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
-  <p>Ein Gatekeeper ist je Asset optional und handelt nur am Mint: er kann neue Einlagen ablehnen. Er hat keinen Schlüssel auf dem Tresor und kann Transfers nicht einfrieren und das Einlösen nicht blockieren. Sobald die Münze existiert, ist er aus dem Weg.</p>
+  <p>Ein Gatekeeper ist je Asset optional und handelt nur am Mint: er kann neue Einlagen ablehnen. Er hat keinen Schlüssel auf dem Tresor und kann Transfers nicht einfrieren und das Einlösen nicht blockieren. Sobald die Münze existiert, ist er aus dem Weg. Er ist kein Verwahrer und nicht das, was zkBTC trustless macht. Operator-Diebstahl und ein Sybil-Ablassen des Pools sind geschlossen, weil du in der nur-wachsenden Operator-Menge bist, nicht weil ein Gatekeeper da ist.</p>
 
   <h2 id="operator-exit">Muss ich einem fremden Operator vertrauen, um auszusteigen? <a class="copy-link" href="#operator-exit" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
-  <p>Nein. Jeder darf sich je Einlage-Epoche als Operator anmelden, auch du. Wer sich anmeldet, kann den eigenen Ausgang selbst vorstrecken und zurückholen. Wer sich nie anmeldet, wartet auf irgendeinen Angemeldeten. Die Anmeldung muss vorher geschehen; ein anmeldefreier Selbst-Rückgriff gibt es auf Bitcoin heute nicht.</p>
+  <p>Nein. Jeder darf in die Operator-Menge, auch du. Die Menge wächst nur; ein neuer Tresor kann alte Operatoren nicht weglassen. Wer sich anmeldet, kann den eigenen Ausgang selbst vorstrecken und zurückholen und ist der ehrliche Unterzeichner jedes späteren Tresors. Wer sich nie anmeldet, wartet auf irgendeinen Angemeldeten und hat keine eigene Attack-B-Garantie. Die Anmeldung muss vorher geschehen; ein anmeldefreier Selbst-Rückgriff gibt es auf Bitcoin heute nicht.</p>
 
   <h2 id="operator-theft">Können Operatoren die Reserve stehlen? <a class="copy-link" href="#operator-theft" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
-  <p>Nicht unter den genannten Annahmen: ein ehrlicher Operator je Deckungsgruppe löscht den Setup-Schlüssel, mindestens ein ehrlicher lebender Challenger handelt in jedem Fenster, und Circuit sowie BitVM2-Graph sind einwandfrei. Der schlimmste Fall unter diesen Annahmen ist Einfrieren, nicht Diebstahl. Ein kritischer Soundness-Fehler ist der Diebstahlfall, deshalb sperrt ein Audit jedes Mainnet.</p>
+  <p>Nein, nicht wenn du in der Operator-Menge bist. Jeder neue Tresor wird von allen aktuellen Operatoren unterschrieben. Du unterschreibst keinen Graphen, der den Tresor an einen Dieb zahlt, und weil die Menge nie schrumpft, kann ein späterer privater Club dich nicht weglassen. Unter den übrigen Annahmen — du (oder ein ehrlicher Operator, der schon in der Menge war) löscht den Setup-Schlüssel, mindestens ein ehrlicher lebender Challenger handelt in jedem Fenster, Circuit und BitVM2-Graph sind einwandfrei — ist der schlimmste Fall Einfrieren, nicht Diebstahl. Ein kritischer Soundness-Fehler ist der Diebstahlfall, deshalb sperrt ein Audit jedes Mainnet. Melde dich vor dem ersten Mint an, damit es kein untrusted Prefix gibt.</p>
 
   <h2 id="privacy">Wie privat ist es? <a class="copy-link" href="#privacy" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
   <p>Innere Transfers sind abgeschirmt: Beträge, Parteien und Graph bleiben vom öffentlichen Buch weg, ausser einem 64-Byte-Nullifier. Peg-in und Peg-out sind gewöhnliche öffentliche Bitcoin-Transaktionen; Beträge und Zeit am Rand sind sichtbar.</p>

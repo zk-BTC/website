@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>zkBTC FAQ</title>
-<meta name="description" content="Urgent questions about zkBTC: what it is, whether it is live, how exit works, privacy, and the optional gatekeeper." />
+<meta name="description" content="Urgent questions about zkBTC: it is effectively trustless because you are an operator; how exit works; privacy; the optional gatekeeper." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://zkbtc.com/faq/" />
 <link rel="alternate" hreflang="en" href="https://zkbtc.com/faq/" />
@@ -35,7 +35,10 @@
   <p class="lede">Short answers. The <a href="/white-paper/">whitepaper</a> and the specification at github.com/zk-coins/zkbtc are the sources.</p>
 
   <h2 id="what-is-zkbtc">What is zkBTC? <a class="copy-link" href="#what-is-zkbtc" aria-label="Copy link to this question" data-copied-label="Link copied"></a></h2>
-  <p>A one-to-one Bitcoin-backed token on the zkCoins protocol: private transfers, redeemable for on-chain bitcoin. The reserve sits in vaults that spend only along pre-signed BitVM2 fraud-proof paths, not in a custodian.</p>
+  <p>A one-to-one Bitcoin-backed token on the zkCoins protocol: private transfers, redeemable for on-chain bitcoin. The reserve sits in vaults that spend only along pre-signed BitVM2 fraud-proof paths, not in a custodian. It is effectively trustless: you are an operator, and you trust nobody else with your bitcoin.</p>
+
+  <h2 id="is-it-trustless">Is zkBTC trustless? Do I have to trust operators or a gatekeeper? <a class="copy-link" href="#is-it-trustless" aria-label="Copy link to this question" data-copied-label="Link copied"></a></h2>
+  <p><strong>Effectively trustless. You do not trust other operators. You are an operator.</strong> Anyone may join the operator set. That set only grows: new people can join, nobody is removed, and every new vault is signed by <em>all</em> current operators, including you. A thief cannot later open a private vault, because you would have to co-sign it, and you will not sign a graph that lets them steal. You can also pay yourself out. Join before the first coin of the asset is minted. A gatekeeper, if present, only checks new deposits; it cannot freeze, seize, or block exit, and it is not what makes zkBTC trustless. What this does not magically remove: Bitcoin itself (a 51% attack), bugs in the cryptography, and the need to actually register if you want these guarantees. Coins minted before you joined are only as safe as whoever was already in the set.</p>
 
   <h2 id="can-i-use-it-today">Can I use it today? <a class="copy-link" href="#can-i-use-it-today" aria-label="Copy link to this question" data-copied-label="Link copied"></a></h2>
   <p>No. This is a design specification and an informative paper. There is no production implementation and no external audit yet. It is not a product you can mint or redeem on mainnet today.</p>
@@ -44,13 +47,13 @@
   <p>Mint: lock bitcoin, wait for deep confirmation of the vault move (on the order of 2016 blocks), then receive the token. Redeem: burn the coin first, then a registered operator fronts bitcoin and reclaims from the vault. There is no un-burn. Set <code>max_fee</code> high enough or the burned coin can sit unserved.</p>
 
   <h2 id="gatekeeper">Is there a gatekeeper? Can it freeze my coins? <a class="copy-link" href="#gatekeeper" aria-label="Copy link to this question" data-copied-label="Link copied"></a></h2>
-  <p>A gatekeeper is optional per asset and acts only at mint: it can refuse new deposits. It has no key on the vault and cannot freeze transfers or block redemption. After a coin exists, the gatekeeper is out of the path.</p>
+  <p>A gatekeeper is optional per asset and acts only at mint: it can refuse new deposits. It has no key on the vault and cannot freeze transfers or block redemption. After a coin exists, the gatekeeper is out of the path. It is not a custodian and it is not what makes zkBTC trustless. Operator theft and a Sybil drain of the pool are closed by you being in the growth-only operator set, not by the gatekeeper.</p>
 
   <h2 id="operator-exit">Do I have to trust some other operator to exit? <a class="copy-link" href="#operator-exit" aria-label="Copy link to this question" data-copied-label="Link copied"></a></h2>
-  <p>No. Anyone may register as an operator for a deposit epoch, including you. If you register, you can front and reclaim your own exit. A holder who never registers waits for some registered operator. Registration is required beforehand; there is no registration-free self-reclaim on bitcoin as it is today.</p>
+  <p>No. Anyone may join the operator set, including you. The set only grows; a new vault cannot drop old operators. If you register, you can front and reclaim your own exit, and you are the honest signer of every later vault. A holder who never registers waits for some registered operator and has no Attack-B guarantee of their own. Registration is required beforehand; there is no registration-free self-reclaim on bitcoin as it is today.</p>
 
   <h2 id="operator-theft">Can operators steal the reserve? <a class="copy-link" href="#operator-theft" aria-label="Copy link to this question" data-copied-label="Link copied"></a></h2>
-  <p>Not under the stated assumptions: one honest operator per backing group deletes its setup key, at least one honest live challenger acts in each window, and the circuit and BitVM2 graph are sound. The worst case under those assumptions is freeze, not theft. A critical soundness bug is the theft case, which is why an audit gates any mainnet.</p>
+  <p>No, not if you are in the operator set. Every new vault is signed by all current operators. You will not sign a graph that pays the vault to a thief, and because the set never shrinks a later private club cannot omit you. Under the remaining assumptions — you (or some honest operator already in the set) deleted the setup key, at least one honest live challenger acts in each window, and the circuit and BitVM2 graph are sound — the worst case is freeze, not theft. A critical soundness bug is the theft case, which is why an audit gates any mainnet. Join before the first mint so there is no untrusted prefix.</p>
 
   <h2 id="privacy">How private is it? <a class="copy-link" href="#privacy" aria-label="Copy link to this question" data-copied-label="Link copied"></a></h2>
   <p>Internal transfers are shielded: amounts, parties, and the graph stay off the public ledger except for a 64-byte nullifier. Peg-in and peg-out are ordinary public bitcoin transactions, so amounts and timing at the boundary are visible.</p>
