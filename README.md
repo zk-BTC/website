@@ -7,8 +7,8 @@ There is **no marketing homepage** yet. `/` permanently redirects to `/white-pap
 | Path | Role |
 | --- | --- |
 | `/` | 301 to `/white-paper/` (`noindex`) |
-| `/white-paper/` | English whitepaper PDF |
-| `/de/white-paper/` | German whitepaper PDF |
+| `/white-paper/` | English whitepaper PDF (200 proxy via `_redirects`; address bar stays on `/white-paper/`; HTML is a no-chrome fallback) |
+| `/de/white-paper/` | German whitepaper PDF (same 200 proxy pattern; HTML is a no-chrome fallback) |
 | `/faq/` | English FAQ |
 | `/de/faq/` | German FAQ |
 
@@ -23,7 +23,7 @@ Secrets in this repository:
 - `CLOUDFLARE_API_TOKEN` — Pages Edit token
 - `CLOUDFLARE_ACCOUNT_ID` — Cloudflare account that owns `zkbtc-website`
 
-The `_redirects` file is the host 301; `index.html` is a fallback redirect for hosts that ignore `_redirects`.
+The `_redirects` file is the host redirect/proxy table; `index.html` is a fallback redirect for hosts that ignore `_redirects`. The white-paper HTML files are a no-chrome PDF fallback for the same reason.
 
 ## License
 
