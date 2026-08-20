@@ -35,30 +35,31 @@
   <h1>FAQ</h1>
   <p class="lede">Kurze Antworten. Quellen: das <a href="/de/white-paper/">Whitepaper</a> und die Spezifikation unter github.com/zk-coins/zkbtc.</p>
 
-  <h2>Was ist zkBTC?</h2>
+  <h2 id="what-is-zkbtc">Was ist zkBTC? <a class="copy-link" href="#what-is-zkbtc" data-copied="Kopiert">Link kopieren</a></h2>
   <p>Ein eins-zu-eins durch Bitcoin gedecktes Token auf dem zkCoins-Protokoll: private Transfers, einlösbar in On-Chain-Bitcoin. Die Reserve liegt in Tresoren, die nur entlang vorsignierter BitVM2-Betrugsnachweis-Pfade ausgeben, nicht bei einem Verwahrer.</p>
 
-  <h2>Kann ich es heute nutzen?</h2>
+  <h2 id="can-i-use-it-today">Kann ich es heute nutzen? <a class="copy-link" href="#can-i-use-it-today" data-copied="Kopiert">Link kopieren</a></h2>
   <p>Nein. Das ist eine Design-Spezifikation und ein informatives Paper. Es gibt noch keine Produktions-Implementierung und kein externes Audit. Es ist kein Produkt, das du heute auf dem Mainnet prägen oder einlösen kannst.</p>
 
-  <h2>Wie bekomme ich zkBTC, und wie komme ich zu Bitcoin zurück?</h2>
+  <h2 id="mint-and-redeem">Wie bekomme ich zkBTC, und wie komme ich zu Bitcoin zurück? <a class="copy-link" href="#mint-and-redeem" data-copied="Kopiert">Link kopieren</a></h2>
   <p>Mint: Bitcoin sperren, tiefe Bestätigung des Tresor-Umzugs abwarten (Grössenordnung 2016 Blöcke), dann das Token empfangen. Einlösen: die Münze zuerst verbrennen, dann streckt ein angemeldeter Operator Bitcoin vor und holt sich den Betrag aus dem Tresor. Es gibt kein Ent-Verbrennen. <code>max_fee</code> hoch genug setzen, sonst kann die verbrannte Münze unbedient bleiben.</p>
 
-  <h2>Gibt es einen Gatekeeper? Kann er meine Münzen einfrieren?</h2>
+  <h2 id="gatekeeper">Gibt es einen Gatekeeper? Kann er meine Münzen einfrieren? <a class="copy-link" href="#gatekeeper" data-copied="Kopiert">Link kopieren</a></h2>
   <p>Ein Gatekeeper ist je Asset optional und handelt nur am Mint: er kann neue Einlagen ablehnen. Er hat keinen Schlüssel auf dem Tresor und kann Transfers nicht einfrieren und das Einlösen nicht blockieren. Sobald die Münze existiert, ist er aus dem Weg.</p>
 
-  <h2>Muss ich einem fremden Operator vertrauen, um auszusteigen?</h2>
+  <h2 id="operator-exit">Muss ich einem fremden Operator vertrauen, um auszusteigen? <a class="copy-link" href="#operator-exit" data-copied="Kopiert">Link kopieren</a></h2>
   <p>Nein. Jeder darf sich je Einlage-Epoche als Operator anmelden, auch du. Wer sich anmeldet, kann den eigenen Ausgang selbst vorstrecken und zurückholen. Wer sich nie anmeldet, wartet auf irgendeinen Angemeldeten. Die Anmeldung muss vorher geschehen; ein anmeldefreier Selbst-Rückgriff gibt es auf Bitcoin heute nicht.</p>
 
-  <h2>Können Operatoren die Reserve stehlen?</h2>
+  <h2 id="operator-theft">Können Operatoren die Reserve stehlen? <a class="copy-link" href="#operator-theft" data-copied="Kopiert">Link kopieren</a></h2>
   <p>Nicht unter den genannten Annahmen: ein ehrlicher Operator je Deckungsgruppe löscht den Setup-Schlüssel, mindestens ein ehrlicher lebender Challenger handelt in jedem Fenster, und Circuit sowie BitVM2-Graph sind einwandfrei. Der schlimmste Fall unter diesen Annahmen ist Einfrieren, nicht Diebstahl. Ein kritischer Soundness-Fehler ist der Diebstahlfall, deshalb sperrt ein Audit jedes Mainnet.</p>
 
-  <h2>Wie privat ist es?</h2>
+  <h2 id="privacy">Wie privat ist es? <a class="copy-link" href="#privacy" data-copied="Kopiert">Link kopieren</a></h2>
   <p>Innere Transfers sind abgeschirmt: Beträge, Parteien und Graph bleiben vom öffentlichen Buch weg, ausser einem 64-Byte-Nullifier. Peg-in und Peg-out sind gewöhnliche öffentliche Bitcoin-Transaktionen; Beträge und Zeit am Rand sind sichtbar.</p>
 
-  <h2>Warum gibt es keine Startseite?</h2>
+  <h2 id="no-homepage">Warum gibt es keine Startseite? <a class="copy-link" href="#no-homepage" data-copied="Kopiert">Link kopieren</a></h2>
   <p>Absicht. Die offizielle Marketing-Seite kommt später. Das Paper liegt von Anfang an unter <a href="/de/white-paper/">/de/white-paper</a>, damit Suchmaschinen diese URL listen.</p>
 </main>
 <footer>zkBTC.com</footer>
+<script src="/faq.js"></script>
 </body>
 </html>

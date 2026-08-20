@@ -5,6 +5,7 @@ Allow: /de/white-paper/
 Allow: /de/faq/
 Allow: /files/
 Allow: /styles.css
+Allow: /faq.js
 Allow: /favicon.svg
 Disallow: /index.html
 
