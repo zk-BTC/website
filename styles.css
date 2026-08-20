@@ -120,17 +120,52 @@ h1 {
 }
 
 .copy-link {
-  margin-left: 0.55rem;
-  font-family: var(--ui);
-  font-size: 0.78rem;
-  font-weight: 400;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.35em;
+  vertical-align: -0.12em;
   color: var(--muted);
+  opacity: 0;
   text-decoration: none;
-  white-space: nowrap;
+  transition: opacity 0.15s ease, color 0.15s ease;
 }
 
-.copy-link:hover {
+.copy-link::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath stroke='%23000' stroke-width='1.4' stroke-linecap='round' d='M6.75 9.25 9.25 6.75M7.2 11.3l-1.4 1.4a2.5 2.5 0 0 1-3.54-3.54l1.4-1.4M8.8 4.7l1.4-1.4a2.5 2.5 0 1 1 3.54 3.54l-1.4 1.4'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath stroke='%23000' stroke-width='1.4' stroke-linecap='round' d='M6.75 9.25 9.25 6.75M7.2 11.3l-1.4 1.4a2.5 2.5 0 0 1-3.54-3.54l1.4-1.4M8.8 4.7l1.4-1.4a2.5 2.5 0 1 1 3.54 3.54l-1.4 1.4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.faq h2:hover .copy-link,
+.faq h2:focus-within .copy-link {
+  opacity: 0.55;
+}
+
+.copy-link:hover,
+.copy-link:focus-visible {
+  opacity: 1;
   color: var(--accent);
+}
+
+.copy-link[data-state="copied"] {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.copy-link[data-state="copied"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.5 6.5 11.5 12.5 4.5'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.5 6.5 11.5 12.5 4.5'/%3E%3C/svg%3E");
+}
+
+@media (hover: none) {
+  .faq h2 .copy-link {
+    opacity: 0.4;
+  }
 }
 
 .faq p {
