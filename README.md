@@ -12,7 +12,7 @@ There is **no marketing homepage** yet. `/` permanently redirects to `/white-pap
 | `/faq/` | English FAQ |
 | `/de/faq/` | German FAQ |
 
-PDFs live in `files/` and match the current papers in [zk-coins/zkbtc](https://github.com/zk-coins/zkbtc). Refresh them when that repository publishes a new revision.
+PDFs live in `files/` and match the current papers in [zk-BTC/zkbtc](https://github.com/zk-BTC/zkbtc). Refresh them when that repository publishes a new revision.
 
 ## Deploy
 
