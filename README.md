@@ -2,11 +2,11 @@
 
 Static site for [zkbtc.com](https://zkbtc.com).
 
-There is **no marketing homepage** yet. `/` serves a `noindex` HTML page with Open Graph tags for `https://zkbtc.com/` and sends humans to `/white-paper/` via script and link. When a homepage ships, `/white-paper/` stays put.
+There is **no marketing homepage** yet. `/` serves Open Graph HTML for `https://zkbtc.com/` (`googlebot` noindex) and sends humans to `/white-paper/` via script and link. When a homepage ships, `/white-paper/` stays put.
 
 | Path | Role |
 | --- | --- |
-| `/` | Open Graph HTML for `https://zkbtc.com/` (`noindex`); humans go to `/white-paper/` via script and link |
+| `/` | Open Graph HTML for `https://zkbtc.com/` (share preview); humans go to `/white-paper/` via script and link |
 | `/white-paper/` | English whitepaper PDF (200 proxy via `_redirects`; address bar stays on `/white-paper/`; HTML is a no-chrome fallback) |
 | `/de/white-paper/` | German whitepaper PDF (same 200 proxy pattern; HTML is a no-chrome fallback) |
 | `/faq/` | English FAQ |

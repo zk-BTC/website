@@ -7,6 +7,7 @@ Allow: /files/
 Allow: /styles.css
 Allow: /faq.js
 Allow: /favicon.svg
+Allow: /og.png
 Disallow: /index.html
 
 Sitemap: https://zkbtc.com/sitemap.xml
