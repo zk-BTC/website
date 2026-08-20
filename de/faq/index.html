@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>zkBTC FAQ</title>
-<meta name="description" content="Die dringendsten Fragen zu zkBTC: es ist effektiv trustless, weil du Operator bist; wie der Ausgang funktioniert; Privatsphäre; der optionale Gatekeeper." />
+<meta name="description" content="Die dringendsten Fragen zu zkBTC: vor dem ersten Mint in die Operator-Menge, dann bist du Operator; Ausgang; Privatsphäre; der optionale Gatekeeper." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://zkbtc.com/de/faq/" />
 <link rel="alternate" hreflang="en" href="https://zkbtc.com/faq/" />
@@ -48,7 +48,7 @@
   <p>Mint: Bitcoin sperren, tiefe Bestätigung des Tresor-Umzugs abwarten (Grössenordnung 2016 Blöcke), dann das Token empfangen. Einlösen: die Münze zuerst verbrennen, dann streckt ein angemeldeter Operator Bitcoin vor und holt sich den Betrag aus dem Tresor. Es gibt kein Ent-Verbrennen. <code>max_fee</code> hoch genug setzen, sonst kann die verbrannte Münze unbedient bleiben.</p>
 
   <h2 id="gatekeeper">Gibt es einen Gatekeeper? Kann er meine Münzen einfrieren? <a class="copy-link" href="#gatekeeper" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
-  <p>Ein Gatekeeper ist je Asset optional und handelt nur am Mint: er kann neue Einlagen ablehnen. Er hat keinen Schlüssel auf dem Tresor und kann Transfers nicht einfrieren und das Einlösen nicht blockieren. Sobald die Münze existiert, ist er aus dem Weg. Er ist kein Verwahrer und nicht das, was zkBTC trustless macht. Operator-Diebstahl und ein Sybil-Ablassen des Pools sind geschlossen, weil du in der nur-wachsenden Operator-Menge bist, nicht weil ein Gatekeeper da ist.</p>
+  <p>Ein Gatekeeper ist je Asset optional und handelt nur am Mint: er kann neue Einlagen ablehnen. Er hat keinen Schlüssel auf dem Tresor und kann Transfers nicht einfrieren und das Einlösen nicht blockieren. Sobald die Münze existiert, ist er aus dem Weg. Er ist kein Verwahrer und nicht das, was zkBTC trustless macht. Operator-Diebstahl und ein Sybil-Ablassen des Pools sind geschlossen, weil du vor dem ersten Mint in die nur-wachsende Operator-Menge eintrittst und keinen bösartigen Graphen unterschreibst, nicht weil ein Gatekeeper da ist. Späterer Beitritt macht frühere Münzen nicht Attack-B-sicher.</p>
 
   <h2 id="operator-exit">Muss ich einem fremden Operator vertrauen, um auszusteigen? <a class="copy-link" href="#operator-exit" aria-label="Link zu dieser Frage kopieren" data-copied-label="Link kopiert"></a></h2>
   <p>Nein. Jeder darf in die Operator-Menge, auch du. Die Menge wächst nur; ein neuer Tresor kann alte Operatoren nicht weglassen. Wer sich anmeldet, kann den eigenen Ausgang selbst vorstrecken und zurückholen und ist der ehrliche Unterzeichner jedes späteren Tresors. Wer sich nie anmeldet, wartet auf irgendeinen Angemeldeten und hat keine eigene Attack-B-Garantie. Die Anmeldung muss vorher geschehen; ein anmeldefreier Selbst-Rückgriff gibt es auf Bitcoin heute nicht.</p>
