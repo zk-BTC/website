@@ -6,15 +6,23 @@ document.addEventListener("click", function (event) {
   if (!navigator.clipboard || !navigator.clipboard.writeText) return;
   var url = new URL(href, window.location.href).href;
   navigator.clipboard.writeText(url).then(function () {
-    if (!link.getAttribute("data-original")) {
-      link.setAttribute("data-original", link.textContent);
-    }
     if (link._copyTimer) {
       window.clearTimeout(link._copyTimer);
     }
-    link.textContent = link.getAttribute("data-copied") || "Copied";
+    link.setAttribute("data-state", "copied");
+    var copied = link.getAttribute("data-copied-label");
+    if (copied) {
+      if (!link.getAttribute("data-idle-label")) {
+        link.setAttribute("data-idle-label", link.getAttribute("aria-label") || "");
+      }
+      link.setAttribute("aria-label", copied);
+    }
     link._copyTimer = window.setTimeout(function () {
-      link.textContent = link.getAttribute("data-original");
+      link.removeAttribute("data-state");
+      var idle = link.getAttribute("data-idle-label");
+      if (idle) {
+        link.setAttribute("aria-label", idle);
+      }
       link._copyTimer = null;
     }, 1600);
   });
