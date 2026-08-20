@@ -2,11 +2,11 @@
 
 Static site for [zkbtc.com](https://zkbtc.com).
 
-There is **no marketing homepage** yet. `/` permanently redirects to `/white-paper/` so search engines list the paper at its final URL from day one. When a homepage ships, `/white-paper/` stays put.
+There is **no marketing homepage** yet. `/` serves a `noindex` HTML page with Open Graph tags for `https://zkbtc.com/` and sends humans to `/white-paper/` via script and link. When a homepage ships, `/white-paper/` stays put.
 
 | Path | Role |
 | --- | --- |
-| `/` | 301 to `/white-paper/` (`noindex`) |
+| `/` | Open Graph HTML for `https://zkbtc.com/` (`noindex`); humans go to `/white-paper/` via script and link |
 | `/white-paper/` | English whitepaper PDF (200 proxy via `_redirects`; address bar stays on `/white-paper/`; HTML is a no-chrome fallback) |
 | `/de/white-paper/` | German whitepaper PDF (same 200 proxy pattern; HTML is a no-chrome fallback) |
 | `/faq/` | English FAQ |
@@ -23,7 +23,7 @@ Secrets in this repository:
 - `CLOUDFLARE_API_TOKEN` — Pages Edit token
 - `CLOUDFLARE_ACCOUNT_ID` — Cloudflare account that owns `zkbtc-website`
 
-The `_redirects` file is the host redirect/proxy table; `index.html` is a fallback redirect for hosts that ignore `_redirects`. The white-paper HTML files are a no-chrome PDF fallback for the same reason.
+The `_redirects` file is the host redirect/proxy table for paper PDFs and alias paths. `index.html` is the document served at `/` (Open Graph plus the user-facing redirect). The white-paper HTML files are a no-chrome PDF fallback for hosts that ignore `_redirects`.
 
 ## License
 
