@@ -2,7 +2,7 @@
 
 This repository is a static site. Changes land through pull requests into `main`. Do not push directly to `main`.
 
-- Keep `/` a user-facing redirect to `/white-paper/` via `index.html` (script + link). Do not HTTP-301 `/` at the edge: share crawlers must receive that HTML (Open Graph tags for `https://zkbtc.com/`). Do not put the whitepaper body on `/`.
+- Keep `/` a user-facing redirect to `/white-paper/` via `index.html` (script + link). Do not HTTP-301 `/` at the edge. Share crawlers must receive that HTML with `og:title`, `og:description`, and `og:image` for `https://zkbtc.com/`. Do not put a generic `robots noindex` on `/` (Googlebot-only noindex is fine). Do not put the whitepaper body on `/`. Do not send known share-crawler user-agents through the script redirect.
 - Keep `/white-paper/` the canonical English paper URL.
 - On the production host, `/white-paper/` and `/de/white-paper/` proxy the PDFs in `files/` (200). The HTML under those paths is a no-chrome fallback for hosts that ignore `_redirects`.
 - Update both language fallback pages when you change shared paper-page copy.
